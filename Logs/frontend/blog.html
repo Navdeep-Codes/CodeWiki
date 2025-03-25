@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="blog-content"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        fetch(`http://localhost:5000/blogs/${id}`)
+            .then(res => res.json())
+            .then(blog => {
+                document.getElementById('blog-content').innerHTML = `
+                    <h1>${blog.title}</h1>
+                    <img src="${blog.image}" alt="Blog Banner">
+                    <p><strong>By ${blog.user}</strong></p>
+                    <pre>${blog.markdown}</pre>
+                `;
+            });
+    </script>
+</body>
+</html>

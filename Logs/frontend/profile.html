@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="profile-name">User's Blogs</h1>
+    <div class="blog-container" id="blog-container"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const user = params.get('user');
+        document.getElementById('profile-name').innerText = `${user}'s Blogs`;
+
+        fetch(`http://localhost:5000/blogs?user=${user}`)
+            .then(res => res.json())
+            .then(blogs => {
+                const container = document.getElementById('blog-container');
+                blogs.forEach(blog => {
+                    const card = document.createElement('div');
+                    card.className = 'blog-card';
+                    card.innerHTML = `
+                        <img src="${blog.image}" alt="Blog Banner">
+                        <h2>${blog.title}</h2>
+                        <a href="blog.html?id=${blog._id}" class="read-more">Read More</a>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error fetching user blogs:', error));
+    </script>
+</body>
+</html>

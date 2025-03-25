@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeWiki</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <!-- Top Bar (Title + Future Categories) -->
+    <div id="topBar">
+        <h1>📚 CodeWiki</h1>
+    </div>
+
+    <div id="mainContainer">
+
+        <!-- Sidebar (Search + Document List) -->
+        <div id="sidebar">
+            <input type="text" id="searchBox" placeholder="Search..." onkeyup="searchDocs()">
+            <ul id="docs-list"></ul>
+        </div>
+        <a href="C:\Users\DELL\Desktop\CodeWiki\Logs\frontend\index.html">
+            <button>Logs</button>
+        </a>
+        <!-- Main Content Area -->
+        <div id="content">
+            <h2 id="docTitle">Welcome to CodeWiki</h2>
+            <div id="markdownContent">Select a document to view.</div>
+            
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

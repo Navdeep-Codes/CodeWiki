@@ -1,0 +1,3 @@
+# JavaScript Basics
+
+JavaScript is a scripting language for web development...

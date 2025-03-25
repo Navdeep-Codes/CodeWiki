@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Grid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <div class="blog-container" id="blog-container"></div>
+
+    <script>
+        fetch('http://localhost:5000/blogs')
+            .then(res => res.json())
+            .then(blogs => {
+                const container = document.getElementById('blog-container');
+                blogs.forEach(blog => {
+                    const card = document.createElement('div');
+                    card.className = 'blog-card';
+                    card.innerHTML = `
+                        <img src="${blog.image}" alt="Blog Banner">
+                        <h2>${blog.title}</h2>
+                        <p>By <a href="profile.html?user=${blog.user}">${blog.user}</a></p>
+                        <a href="blog.html?id=${blog._id}" class="read-more">Read More</a>
+                    `;
+                    container.appendChild(card);
+                });
+            });
+    </script>
+</body>
+</html>
