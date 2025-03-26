@@ -1,11 +1,11 @@
-How run this!
-# Setup 
-In the main directory do 
-npm i
-In the Logs directory do 
-npm i
+# How run this!
+## Setup 
+1. In the main directory do: 
+`npm i`
+2. In the Logs directory do:
+`npm i`
 
-# Run the application
+## Run the application
 
  Then make three terminals
 1. For the Main page
